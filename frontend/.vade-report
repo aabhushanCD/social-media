@@ -1,0 +1,52 @@
+# Vercel Speed Insights Implementation
+
+Successfully installed and configured Vercel Speed Insights for the React + Vite project.
+
+## Changes Made
+
+### 1. Package Installation
+- **Added**: `@vercel/speed-insights` version ^2.0.0 to dependencies
+- **Files Modified**: 
+  - `package.json` - Added @vercel/speed-insights dependency
+  - `package-lock.json` - Updated with new package and dependencies
+
+### 2. SpeedInsights Component Integration
+- **File Modified**: `src/main.jsx`
+  - Imported `SpeedInsights` component from `@vercel/speed-insights/react`
+  - Added `<SpeedInsights />` component to the render tree alongside the Toaster component
+  - Placed within the NotificationProvider context for proper React tree integration
+
+### 3. Pre-existing Bug Fixes
+While implementing Speed Insights, I identified and fixed pre-existing build and lint errors:
+
+- **File Modified**: `src/features/comment/components/CommentListData.jsx`
+  - Fixed import case sensitivity: `toggleMenu` → `ToggleMenu`
+  
+- **File Modified**: `src/features/post/components/Post/PostHead.jsx`
+  - Fixed import case sensitivity: `toggleMenu` → `ToggleMenu`
+  
+- **File Modified**: `vite.config.js`
+  - Fixed ESM `__dirname` issue by importing `fileURLToPath` from 'url'
+  - Added proper `__dirname` definition for ES modules
+
+## Implementation Details
+
+Following the official Vercel Speed Insights documentation (fetched from https://vercel.com/docs/speed-insights/quickstart), I used the React-specific integration pattern. The SpeedInsights component was added to the main entry point (`main.jsx`) which ensures it's loaded on every page of the application.
+
+The component placement was chosen to be at the same level as the Toaster component, inside the application's context providers. This ensures Speed Insights will track performance across all routes and components.
+
+## Verification
+
+✅ Build completed successfully (`npm run build`)
+✅ Linter passes with no errors (only pre-existing warnings remain)
+✅ Dependencies properly updated in package-lock.json
+
+## Next Steps
+
+To enable Speed Insights in production:
+1. Deploy the application to Vercel
+2. Navigate to your project's Speed Insights section in the Vercel dashboard
+3. Click the "Enable" button to activate Speed Insights
+4. Performance metrics will begin collecting after the next deployment
+
+The Speed Insights component is now properly integrated and ready to collect real user performance metrics once enabled in the Vercel dashboard.

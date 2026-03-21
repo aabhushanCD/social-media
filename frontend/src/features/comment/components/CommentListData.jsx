@@ -3,7 +3,7 @@ import { deleteComment, editComment, likeComments } from "../comment.service";
 import { toast } from "sonner";
 import { timeAgo } from "@/utils/constants";
 import { Heart, SendIcon } from "lucide-react";
-import ToggleMenu from "@/components/toggleMenu";
+import ToggleMenu from "@/components/ToggleMenu";
 
 const CommentListData = ({
   comment,

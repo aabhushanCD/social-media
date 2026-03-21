@@ -1,4 +1,4 @@
-import ToggleMenu from "@/components/toggleMenu";
+import ToggleMenu from "@/components/ToggleMenu";
 import { timeAgo } from "@/utils/constants";
 import { MoreHorizontal, Trash2, Pencil, X } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
